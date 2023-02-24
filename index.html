@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop the user to copy the contnet of the website</title>
+  </head>
+  <style>
+    body {
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version */
+    }
+  </style>
+  <body>
+    <h2>Heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita,
+      repudiandae.
+    </p>
+
+    <script>
+      // Disable right-click context menu
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+
+      // Disable keyboard shortcut for inspect element
+      document.onkeydown = function (e) {
+        if (e.keyCode === 123) {
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode === "I".charCodeAt(0)) {
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode === "J".charCodeAt(0)) {
+          return false;
+        }
+        if (e.ctrlKey && e.keyCode === "U".charCodeAt(0)) {
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+          e.preventDefault();
+        }
+      };
+    </script>
+  </body>
+</html>
